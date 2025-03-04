@@ -9,7 +9,7 @@ info:
   license:
     name: MIT
     url: https://opensource.org/license/mit/
-  version: '1.0'
+  version: '1.1'
 servers:
   - url: https://gwa-apim.gwa.com
 paths:
@@ -28,6 +28,13 @@ paths:
             type: string
             format: date
             example: '2023-02-23'
+        - name: endDate
+          in: query
+          description: Format - date (as full-date in RFC3339). Ending date to retrieve future operating hours. Defaults to today's date.
+          schema:
+            type: string
+            format: date
+            example: '2023-02-24'
         - name: page
           in: query
           description: Page number to retrieve.
