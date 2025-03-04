@@ -9,7 +9,7 @@ info:
   license:
     name: MIT
     url: https://opensource.org/license/mit/
-  version: '1.1'
+  version: '1.2'
 servers:
   - url: https://gwa-apim.gwa.com
 paths:
@@ -109,6 +109,102 @@ paths:
               example:
                 type: object
                 title: Validation failed
+  /museum-days:
+  get:
+    tags:
+      - Operations
+    summary: Get museum days
+    description: Get upcoming museum operating days.
+    operationId: getMuseumDays
+    parameters:
+      - name: startDate
+        in: query
+        description: Format - date (as full-date in RFC3339). Starting date to retrieve future operating days from. Defaults to today's date.
+        schema:
+          type: string
+          format: date
+          example: '2023-02-23'
+      - name: endDate
+        in: query
+        description: Format - date (as full-date in RFC3339). Ending date to retrieve future operating days. Defaults to today's date.
+        schema:
+          type: string
+          format: date
+          example: '2023-02-24'
+      - name: page
+        in: query
+        description: Page number to retrieve.
+        schema:
+          type: integer
+          default: 1
+          example: 2
+      - name: limit
+        in: query
+        description: Number of days per page.
+        schema:
+          maximum: 30.0
+          type: integer
+          default: 10
+          example: 15
+    responses:
+      '200':
+        description: Success.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetMuseumHoursResponse'
+            examples:
+              default_example:
+                summary: Get hours response
+                value:
+                  - date: '2023-09-11'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-12'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-13'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-14'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-15'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-18'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-19'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-20'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-21'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+                  - date: '2023-09-22'
+                    timeOpen: '2024-09-09'
+                    timeClose: '2024-09-09'
+      '400':
+        description: Bad request.
+        content:
+          application/problem+json:
+            schema:
+              $ref: '#/components/schemas/Error'
+            example:
+              type: object
+              title: Validation failed
+      '404':
+        description: Not found.
+        content:
+          application/problem+json:
+            schema:
+              $ref: '#/components/schemas/Error'
+            example:
+              type: object
+              title: Validation failed
   /special-events:
     post:
       tags:
