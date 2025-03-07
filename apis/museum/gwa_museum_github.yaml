@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: GWA Museum API Github
-  description: 'Imaginary, but delightful Museum API for interacting with museum services and information. Built with love by Redocly.'
+  description: 'Imaginary, but delightful Museum API for interacting with museum services and information. Built with love by Redocly. --UPDATE 1.4'
   termsOfService: https://redocly.com/subscription-agreement/
   contact:
     url: https://redocly.com/docs/cli/
@@ -9,7 +9,7 @@ info:
   license:
     name: MIT
     url: https://opensource.org/license/mit/
-  version: '1.3'
+  version: '1.4'
 servers:
   - url: https://gwa-apim.gwa.com
 paths:
@@ -114,7 +114,7 @@ paths:
       tags:
         - Operations
       summary: Get museum days
-      description: Get upcoming museum operating days. --- UPDATED DESCRIPTION
+      description: Get upcoming museum operating days. --- REMOVED COMMENT
       operationId: getMuseumDays
       parameters:
         - name: startDate
