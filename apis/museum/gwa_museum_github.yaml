@@ -1,5 +1,6 @@
 openapi: 3.0.1
 info:
+  # Insert multiple yaml comments with keywords YAMLCOMMENTKEYWORD1
   title: GWA Museum API Github
   description: 'Imaginary, but delightful Museum API for interacting with museum services and information. Built with love by Redocly. --NO YAML COMMENT'
   termsOfService: https://redocly.com/subscription-agreement/
@@ -12,6 +13,7 @@ info:
   version: '1.5'
 servers:
   - url: https://gwa-apim.gwa.com
+# Insert multiple yaml comments with keywords YAMLCOMMENTKEYWORD2
 paths:
   /museum-hours:
     get:
@@ -24,6 +26,7 @@ paths:
         - name: startDate
           in: query
           description: Format - date (as full-date in RFC3339). Starting date to retrieve future operating hours from. Defaults to today's date.
+          # Insert multiple yaml comments with keywords YAMLCOMMENTKEYWORD3
           schema:
             type: string
             format: date
